@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado Modelo - Estilo BA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="certificado.css">
+</head>
+<body>
+
+    <div class="certificate-container" id="certificado">
+        <div class="shape-top-left"></div>
+        <div class="shape-bottom-left"></div>
+        
+        <div class="watermark">EJEMPLO</div>
+
+        <div class="content">
+            <div class="header-date">
+                Ciudad Autónoma, Enero 2026
+            </div>
+
+            <div>
+                <div class="title">Constancia de aprendizaje</div>
+                <div class="subtitle">Se deja constancia que,</div>
+            </div>
+
+            <div class="main-text">
+                <span class="placeholder-line" style="width: 450px;">Nombre y apellido</span>
+                <br>
+                se encuentra aprendiendo la tecnología:
+                <br>
+                <span class="course-details placeholder-line">Git y Github</span>
+                mediante ejercicios prácticos y prácticas guiadas.
+                <br>
+            </div>
+            
+            <div class="unofficial-badge">
+                Documento NO OFICIAL
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const certificado = document.getElementById('certificado');
+
+        certificado.addEventListener('mousemove', (e) => {
+            const rect = certificado.getBoundingClientRect();
+            
+            // Centro del certificado
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+        
+            const mouseX = e.clientX - centerX;
+            const mouseY = e.clientY - centerY;
+            const rotateY = mouseX / 25; // Eje Y controla izquierda/derecha
+            const rotateX = -(mouseY / 25); // Eje X controla arriba/abajo (invertido)
+
+            certificado.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        // Cuando el mouse sale, el certificado vuelve a estar plano
+        certificado.addEventListener('mouseleave', () => {
+            certificado.style.transform = 'rotateX(0) rotateY(0)';
+        });
+    </script>
+</body>
+</html>
