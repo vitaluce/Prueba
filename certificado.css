@@ -1,6 +1,6 @@
 :root {
     --bg-blue: #0A2240;
-    --bg-yellow: #FFC800;
+    --bg-yellow: #00ff62;
     --text-dark: #333333;
     --text-grey: #666666;
 }
@@ -28,7 +28,7 @@ body {
     
     /* ANIMACIÓN */
     transform-style: preserve-3d;
-    transition: transform 0.1s ease-out; /* Movimiento*/
+    transition: transform 0.3s ease-out; /* Movimiento*/
     will-change: transform;
 }
 
